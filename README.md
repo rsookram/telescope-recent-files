@@ -68,13 +68,6 @@ require("telescope").setup {
 
 The extension provides the following options:
 
-- `stat_files` (default `true`).
-
-  Defines if the files should be checked for existence before showing in the pickers.
-  When working on remotely mounted filesystems, it is helpful to turn it off in
-  order to eliminate an extra latency when showing the pickers. At the cost of
-  [potentially] showing non-existing files.
-
 - `ignore_patterns` (default `{"/tmp/"}`).
 
   The list of file patterns to ignore in the picker. These are the standard [Lua patterns](https://www.lua.org/pil/20.2.html).
