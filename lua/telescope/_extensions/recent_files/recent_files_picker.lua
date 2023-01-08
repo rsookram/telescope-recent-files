@@ -14,7 +14,6 @@ local defaults = {
   transform_file_path = function (path)
     return path
   end,
-  show_current_file = false,
 }
 
 --Map from file path to its recency number. The higher the number,
@@ -99,13 +98,13 @@ local function prepare_recent_files(opts)
   local old_files_map = {}
 
   for i, file in ipairs(vim.v.oldfiles) do
-    if opts.show_current_file or file ~= current_file then
+    if file ~= current_file then
       add_recent_file(result_list, result_map, file, opts)
       old_files_map[file] = i
     end
   end
   for buffer_file in pairs(recent_bufs) do
-    if opts.show_current_file or buffer_file ~= current_file then
+    if buffer_file ~= current_file then
       add_recent_file(result_list, result_map, buffer_file, opts)
     end
   end
