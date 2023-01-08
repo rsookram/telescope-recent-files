@@ -12,7 +12,6 @@ local options
 local defaults = {
   stat_files = true,
   ignore_patterns = {"/tmp/"},
-  only_cwd = false,
   transform_file_path = function (path)
     return path
   end,
@@ -83,7 +82,7 @@ local function add_recent_file(result_list, result_map, file_path, opts)
   if should_add and opts.stat_files and not stat(file_path) then
     should_add = false
   end
-  if should_add and opts.only_cwd and not is_in_cwd(file_path) then
+  if should_add and not is_in_cwd(file_path) then
     should_add = false
   end
 
