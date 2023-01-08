@@ -68,12 +68,6 @@ require("telescope").setup {
 
 The extension provides the following options:
 
-- `ignore_patterns` (default `{"/tmp/"}`).
-
-  The list of file patterns to ignore in the picker. These are the standard [Lua patterns](https://www.lua.org/pil/20.2.html).
-  If you're opening some logs or other temporary files, you can configure the ignore
-  patters in order not to clutter the pickers.
-
 - `transform_file_path` (default `function(file_path) return file_path end`).
 
   This is a Lua function to modify the file path for each entry in the pickers,

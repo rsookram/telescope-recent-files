@@ -10,7 +10,6 @@ local M = {}
 local options
 
 local defaults = {
-  ignore_patterns = {"/tmp/"},
   transform_file_path = function (path)
     return path
   end,
@@ -52,13 +51,7 @@ local function stat(filename)
 end
 
 local function is_ignored(file_path, opts)
-  if opts.ignore_patterns == nil then
-    return false
-  end
-  for _,p in ipairs(opts.ignore_patterns) do
-   if string.find(file_path, p) then return true end
-  end
-  return false
+  return string.find(file_path, "/tmp/") or string.find(file_path, "%.git/")
 end
 
 local function is_in_cwd(file_path)
