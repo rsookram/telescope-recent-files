@@ -35,13 +35,9 @@ _G.telescope_recent_files_buf_register =
   function()
     local bufnr = vim.api.nvim_get_current_buf()
     local file = vim.api.nvim_buf_get_name(bufnr)
-    if options.transform_file_path then
-      file = options.transform_file_path(file)
-    end
-    if file ~= "" then
-      recent_bufs[file] = recent_cnt
-      recent_cnt = recent_cnt + 1
-    end
+
+    recent_bufs[file] = recent_cnt
+    recent_cnt = recent_cnt + 1
   end
 vim.cmd [[
 augroup telescope_recent_files
