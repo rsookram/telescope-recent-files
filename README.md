@@ -60,17 +60,8 @@ require("telescope").setup {
   },
   extensions = {
     recent_files = {
-      -- This extension's options, see below.
+      -- Telescope options applied specifically to this plugin.
     }
   }
 }
 ```
-
-The extension provides the following options:
-
-- `transform_file_path` (default `function(file_path) return file_path end`).
-
-  This is a Lua function to modify the file path for each entry in the pickers,
-  before it gets displayed. If you return `nil` or `""`, the file will not be shown.
-  Note that this function does not affect how the file path is displayed, use
-  `:h telescope.defaults.path_display` for this.
