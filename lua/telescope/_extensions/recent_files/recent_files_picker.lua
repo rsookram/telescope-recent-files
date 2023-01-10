@@ -6,21 +6,21 @@ local utils = require "telescope._extensions.recent_files.utils"
 
 local M = {}
 
---Effective extension options, available after the setup call.
+-- Effective extension options, available after the setup call.
 local options
 
---Map from file path to its recency number. The higher the number,
---the more recently the file was used.
+-- Map from file path to its recency number. The higher the number,
+-- the more recently the file was used.
 local recent_bufs = {}
---Global counter of recent files. Increased when a buffer was entered.
+-- Global counter of recent files. Increased when a buffer was entered.
 local recent_cnt = 0
 
 M.setup = function(opts)
   options = opts
 end
 
---We keep track of recent buffer by listening to BufEnter events,
---and giving each file its monotonically increasing recency number.
+-- We keep track of recent buffer by listening to BufEnter events,
+-- and giving each file its monotonically increasing recency number.
 _G.telescope_recent_files_buf_register =
   function()
     local bufnr = vim.api.nvim_get_current_buf()
